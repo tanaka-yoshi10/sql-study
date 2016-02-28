@@ -4,7 +4,6 @@ class Book < ActiveRecord::Base
   def self.purchasing_count_by_age_group
     sql = <<-SQL
 SELECT
-  b.id,
   MAX(b.title) AS title,
   SUM(CASE WHEN p.age < 20 THEN 1 ELSE 0 END) AS under_19,
   SUM(CASE WHEN p.age >= 20 AND p.age < 30 THEN 1 ELSE 0 END) AS age_20s,

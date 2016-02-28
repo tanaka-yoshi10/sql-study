@@ -30,7 +30,6 @@ h2 各書籍の年齢層別売上件数を表示する
 .answer
   table.table
     tr
-      th ID
       th title
       th 19以下
       th 20代
@@ -38,7 +37,6 @@ h2 各書籍の年齢層別売上件数を表示する
       th 40以上
     - Book.purchasing_count_by_age_group.each do |book|
       tr
-        td = book.id
         td = book.title
         td = book.under_19
         td = book.age_20s
