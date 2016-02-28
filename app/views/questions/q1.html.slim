@@ -1,0 +1,40 @@
+h1 問題1
+
+h2 Members
+
+table.table
+  tr
+    th ID
+    th Name
+  - Member.order(:id).each do |member|
+    tr
+      td = member.id
+      td = member.name
+
+h2 Events
+
+table.table
+  tr
+    th ID
+    th Name
+  - Event.order(:id).each do |event|
+    tr
+      td = event.id
+      td = event.name
+
+h2 EventParticipations
+
+table.table
+  tr
+    th Member
+    th Event
+    th Canceled?
+  - EventParticipation.order(:id).each do |participation|
+    tr
+      td = participation.member.name
+      td = participation.event.name
+      td = participation.canceled?
+
+h2 イベントに参加していないメンバーの一覧
+
+p （コードを書く）

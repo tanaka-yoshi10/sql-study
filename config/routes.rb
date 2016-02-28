@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  resources :questions, only: :index do
+    collection do
+      get :q1
+    end
+  end
+  root to: 'questions#index'
 end
