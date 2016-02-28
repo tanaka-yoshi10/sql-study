@@ -29,3 +29,17 @@ ruby_discussion.comments.create! content: '西脇.rb＆神戸.rbの勉強会が�
 ruby_discussion.comments.create! content: 'jnchitoさんをフォローするといいですよ'
 java_discussion.comments.create! content: 'まずオブジェクト指向プログラミングを勉強しましょう'
 
+# Question 3 ============================
+Task.delete_all
+Project.delete_all
+
+cobol_project = Project.create! name: 'COBOL読書会', note: '全タスクが過去'
+party_project = Project.create! name: '新人歓迎会', note: '全タスクが未来'
+mountain_project = Project.create! name: '山登り', note: '過去と未来のタスクが混在'
+elixir_project = Project.create! name: 'Elixir勉強会', note: 'タスクなし'
+
+cobol_project.tasks.create! content: '本を選ぶ', due_date: '2000-04-01'
+party_project.tasks.create! content: '参加者を募る', due_date: '2026-03-01'
+party_project.tasks.create! content: 'お店の候補を考える', due_date: '2026-03-10' # 表示
+mountain_project.tasks.create! content: '参加者を募る', due_date: '2000-04-01'
+mountain_project.tasks.create! content: '予算を決める', due_date: '2026-02-01' # 表示

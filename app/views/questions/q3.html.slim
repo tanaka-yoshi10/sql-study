@@ -1,0 +1,38 @@
+h1 問題3
+
+h2 Projects
+
+table.table
+  tr
+    th ID
+    th Name
+    th Note
+  - Project.order(:id).each do |project|
+    tr
+      td = project.id
+      td = project.name
+      td = project.note
+
+h2 Tasks
+
+table.table
+  tr
+    th Project
+    th Content
+    th Due date
+  - Task.order(:project_id, :id).each do |task|
+    tr
+      td = task.project.name
+      td = task.content
+      td = l task.due_date
+
+h2 締切順にプロジェクトを並べる
+
+.alert.alert-info
+  ul
+    li 締切が全部過ぎたプロジェクトは表示しない
+    li 締切が近いプロジェクトから順に並べる
+    li ただし、締切が過ぎたタスクは無視する
+    li タスクが１つもないプロジェクトは最後に表示する
+
+.answer
