@@ -17,23 +17,12 @@ html
         /! Sidebar
         #sidebar-wrapper
           ul.sidebar-nav
-            li.sidebar-brand
-              a href="#"
-                | Start Bootstrap
-            li
-              a href="#"  Dashboard
-            li
-              a href="#"  Shortcuts
-            li
-              a href="#"  Overview
-            li
-              a href="#"  Events
-            li
-              a href="#"  About
-            li
-              a href="#"  Services
-            li
-              a href="#"  Contact
+            - (1..2).each do |num|
+              li
+                - path = send("q#{num}_questions_path")
+                - css = 'active' if current_page?(path)
+                = link_to "問題#{num}", path, class: css
+
         /! /#sidebar-wrapper
         /! Page Content
         #page-content-wrapper
