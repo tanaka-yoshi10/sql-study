@@ -43,3 +43,18 @@ party_project.tasks.create! content: '参加者を募る', due_date: '2026-03-01
 party_project.tasks.create! content: 'お店の候補を考える', due_date: '2026-03-10' # 表示
 mountain_project.tasks.create! content: '参加者を募る', due_date: '2000-04-01'
 mountain_project.tasks.create! content: '予算を決める', due_date: '2026-02-01' # 表示
+
+# Question 4 ============================
+DepositTransaction.delete_all
+
+DepositTransaction.create! occurred_on: '2016/01/01', amount: 5000
+DepositTransaction.create! occurred_on: '2016/02/01', amount: -3000
+DepositTransaction.create! occurred_on: '2016/02/11', amount: 1000
+DepositTransaction.create! occurred_on: '2016/03/01', amount: 2000
+DepositTransaction.create! occurred_on: '2016/03/01', amount: -3000
+DepositTransaction.create! occurred_on: '2016/03/02', amount: 8000
+DepositTransaction.create! occurred_on: '2016/03/05', amount: -2000
+DepositTransaction.create! occurred_on: '2016/03/05', amount: -1000
+DepositTransaction.create! occurred_on: '2016/03/06', amount: 2000
+DepositTransaction.create! occurred_on: '2016/03/06', amount: 5000
+DepositTransaction.create! occurred_on: '2016/03/06', amount: -4000

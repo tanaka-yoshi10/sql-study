@@ -1,0 +1,36 @@
+h1 問題4
+
+h2 DepositTransactions
+
+table.table
+  tr
+    th ID
+    th Occurred on
+    th Amount yen
+  - DepositTransaction.order(:id).each do |transaction|
+    tr
+      td = transaction.id
+      td = l transaction.occurred_on
+      td = transaction.amount
+
+h2 2016年3月の取引履歴を日毎に集計する
+
+.alert.alert-info
+  ul
+    li お客さんから預かっている預り金の残高に対して、いつ入金されて、いつ引き落とされたかのレポートを作りたい
+    li 利用（取崩）するとマイナス(payment)、入金するとプラス(deposit)
+    li 2016年3月に発生した取引を日毎に入金と取崩と残高にわけて集計する
+    li 当日の残高 ＝ 前日までの残高 + 当日の入金合計(deposit) - 当日の取崩合計(payment)
+.answer
+  table.table
+    tr
+      th Occurred on
+      th Deposit
+      th Payment
+      th Cum remainder
+    - DepositTransaction.daily_transactions.each do |transaction|
+      tr
+        td = l transaction.occurred_on
+        td = transaction.deposit
+        td = transaction.payment
+        td = transaction.cum_remainder

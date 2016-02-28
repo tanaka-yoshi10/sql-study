@@ -8,4 +8,6 @@ class QuestionsController < ApplicationController
   def q2; end
 
   def q3; end
+
+  def q4; end
 end

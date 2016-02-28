@@ -32,6 +32,6 @@ WHERE
 ORDER BY
   p.task_due_date
     SQL
-    find_by_sql([sql, {date: Date.current}])
+    find_by_sql([sql, date: Date.current])
   end
 end
