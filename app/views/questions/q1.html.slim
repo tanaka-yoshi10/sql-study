@@ -37,4 +37,13 @@ table.table
 
 h2 イベントに参加していないメンバーの一覧
 
-p （コードを書く）
+.answer
+  table.table
+    tr
+      th ID
+      th Name
+    - Member.no_participation.order(:id).each do |member|
+      tr
+        td = member.id
+        td = member.name
+
