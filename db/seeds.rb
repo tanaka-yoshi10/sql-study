@@ -21,9 +21,9 @@ chris_participation.update! canceled: true
 Comment.delete_all
 Discussion.delete_all
 
+cobol_discussion = Discussion.create! content: 'COBOLの学習方法を教えてください'
 ruby_discussion = Discussion.create! content: 'Rubyの学習方法を教えてください'
 java_discussion = Discussion.create! content: 'Javaの学習方法を教えてください'
-cobol_discussion = Discussion.create! content: 'COBOLの学習方法を教えてください'
 
 ruby_discussion.comments.create! content: '西脇.rb＆神戸.rbの勉強会がいいですよ'
 ruby_discussion.comments.create! content: 'jnchitoさんをフォローするといいですよ'
