@@ -24,8 +24,8 @@ h2 コメントの件数付きでディスカッションを一覧表示する
       th ID
       th Content
       th Comments
-    - Discussion.order(:id).each do |discussion|
+    - Discussion.with_comment_counts.order(:id).each do |discussion|
       tr
         td = discussion.id
         td = discussion.content
-        td = "#{discussion.comments.count}件"
+        td = "#{discussion.comment_count}件"
