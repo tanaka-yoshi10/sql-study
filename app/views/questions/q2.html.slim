@@ -19,3 +19,13 @@ table.table
 h2 コメントの件数付きでディスカッションを一覧表示する
 
 .answer
+  table.table
+    tr
+      th ID
+      th Content
+      th Comments
+    - Discussion.order(:id).each do |discussion|
+      tr
+        td = discussion.id
+        td = discussion.content
+        td = "#{discussion.comments.count}件"
