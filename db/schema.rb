@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228050628) do
+ActiveRecord::Schema.define(version: 20160228055711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "discussion_id"
@@ -68,6 +74,15 @@ ActiveRecord::Schema.define(version: 20160228050628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "purchasings", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "purchasings", ["book_id"], name: "index_purchasings_on_book_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "content"
@@ -81,5 +96,6 @@ ActiveRecord::Schema.define(version: 20160228050628) do
   add_foreign_key "comments", "discussions"
   add_foreign_key "event_participations", "events"
   add_foreign_key "event_participations", "members"
+  add_foreign_key "purchasings", "books"
   add_foreign_key "tasks", "projects"
 end

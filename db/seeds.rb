@@ -58,3 +58,19 @@ DepositTransaction.create! occurred_on: '2016/03/05', amount: -1000
 DepositTransaction.create! occurred_on: '2016/03/06', amount: 2000
 DepositTransaction.create! occurred_on: '2016/03/06', amount: 5000
 DepositTransaction.create! occurred_on: '2016/03/06', amount: -4000
+
+# Question 5 ============================
+Purchasing.delete_all
+Book.delete_all
+
+ruby_book = Book.create! title: 'Ruby入門'
+cobol_book = Book.create! title: '応用COBOL'
+ada_book = Book.create! title: 'はじめてのAda'
+
+ruby_book.purchasings.create! age: 15
+ruby_book.purchasings.create! age: 18
+ruby_book.purchasings.create! age: 20
+ruby_book.purchasings.create! age: 38
+ruby_book.purchasings.create! age: 43
+ruby_book.purchasings.create! age: 49
+cobol_book.purchasings.create! age: 25
