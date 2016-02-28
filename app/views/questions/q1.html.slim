@@ -48,7 +48,7 @@ h2 Ruby勉強会に参加していないメンバーの一覧
       th ID
       th Name
     - event = Event.find_by name: 'Ruby勉強会'
-    - Member.no_participation(event).order(:id).each do |member|
+    - event.non_participated_members.order(:id).each do |member|
       tr
         td = member.id
         td = member.name
