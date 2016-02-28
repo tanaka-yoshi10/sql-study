@@ -35,14 +35,20 @@ table.table
       td = participation.event.name
       td = participation.canceled?
 
-h2 イベントに参加していないメンバーの一覧
+h2 Ruby勉強会に参加していないメンバーの一覧
+
+.alert.alert-info
+  ul
+    li キャンセルされていれば参加していないと見なす
+    li 並び順はメンバーのID順
 
 .answer
   table.table
     tr
       th ID
       th Name
-    - Member.no_participation.order(:id).each do |member|
+    - event = Event.find_by name: 'Ruby勉強会'
+    - Member.no_participation(event).order(:id).each do |member|
       tr
         td = member.id
         td = member.name

@@ -9,13 +9,19 @@ chris = Member.create! name: 'Chris'
 dave = Member.create! name: 'Dave'
 
 ruby_study = Event.create! name: 'Ruby勉強会'
+java_study = Event.create! name: 'Java勉強会'
 
 ruby_study.members << alice
 ruby_study.members << bob
-ruby_study.members << chris
+java_study.members << chris
 
+ruby_study.members << chris
 chris_participation = EventParticipation.last
 chris_participation.update! canceled: true
+
+java_study.members << alice
+alice_participation = EventParticipation.last
+alice_participation.update! canceled: true
 
 # Question 2 ============================
 Comment.delete_all
