@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Question 2' do
+feature 'Question 3' do
   scenario do
     visit q3_questions_path
 
