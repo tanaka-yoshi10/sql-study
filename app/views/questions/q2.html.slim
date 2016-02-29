@@ -26,7 +26,7 @@ h2 ディスカッションをコメント件数の多い順に一覧表示す�
       th ID
       th Content
       th Comments
-    - Discussion.with_comment_counts.order(:id).each do |discussion|
+    - Discussion.order_by_comment_counts.each do |discussion|
       tr
         td = discussion.id
         td = discussion.content
