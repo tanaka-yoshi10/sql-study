@@ -5,6 +5,10 @@
     - queries = QueryCounter.queries
     .query-count = "Query count: #{queries.size}"
     - if queries.present?
-      - QueryCounter.queries.each do |sql|
+      - QueryCounter.queries.each do |sql, binds|
         pre
-          = format_sql(sql)
+          = format_sql(sql).html_safe
+          - if binds.present?
+            = "\n\nbinds: "
+            = binds.map(&:last).map.with_index(1){|v, i| "$#{i} => #{v}"}.join(", ")
+
