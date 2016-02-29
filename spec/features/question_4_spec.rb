@@ -21,5 +21,6 @@ feature 'Question 4' do
       col_texts = all('td').map(&:text)
       expect(col_texts).to eq %w(2016-03-06 7000 4000 10000)
     end
+    assert_sql_count
   end
 end

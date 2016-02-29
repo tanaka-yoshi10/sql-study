@@ -1,10 +1,10 @@
 .answer
   - QueryCounter.init
   = yield
-.sql-info
-  - queries = QueryCounter.queries
-  .query-count = "Query count: #{queries.size}"
-  - if queries.present?
-    - QueryCounter.queries.each do |sql|
-      pre
-        = format_sql sql
+  .sql-info
+    - queries = QueryCounter.queries
+    .query-count = "Query count: #{queries.size}"
+    - if queries.present?
+      - QueryCounter.queries.each do |sql|
+        pre
+          = format_sql sql

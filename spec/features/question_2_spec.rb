@@ -17,5 +17,6 @@ feature 'Question 2' do
       expect(page).to have_content 'COBOL'
       expect(page).to have_content '0件'
     end
+    assert_sql_count
   end
 end

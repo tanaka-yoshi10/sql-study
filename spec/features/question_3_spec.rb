@@ -18,5 +18,6 @@ feature 'Question 3' do
     within rows[3] do
       expect(page).to have_content 'Elixir勉強会'
     end
+    assert_sql_count
   end
 end

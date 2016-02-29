@@ -9,5 +9,6 @@ feature 'Question 1' do
       expect(page).to_not have_content 'Alice'
       expect(page).to_not have_content 'Bob'
     end
+    assert_sql_count
   end
 end

@@ -17,5 +17,6 @@ feature 'Question 5' do
       col_texts = all('td').map(&:text)
       expect(col_texts).to eq %w(はじめてのAda 0 0 0 0)
     end
+    assert_sql_count
   end
 end
