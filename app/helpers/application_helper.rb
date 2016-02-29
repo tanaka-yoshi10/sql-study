@@ -4,6 +4,6 @@ module ApplicationHelper
   def format_sql(sql)
     rule = AnbtSql::Rule.new
     formatter = AnbtSql::Formatter.new(rule)
-    formatter.format(sql)
+    "    #{formatter.format(sql)}".strip_heredoc
   end
 end

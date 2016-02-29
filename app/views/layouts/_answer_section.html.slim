@@ -7,4 +7,4 @@
     - if queries.present?
       - QueryCounter.queries.each do |sql|
         pre
-          = format_sql sql
+          = format_sql(sql)
