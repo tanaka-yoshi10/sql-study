@@ -1,0 +1,10 @@
+.answer
+  - QueryCounter.init
+  = yield
+.sql-info
+  - queries = QueryCounter.queries
+  .query-count = "Query count: #{queries.size}"
+  - if queries.present?
+    ul
+      - QueryCounter.queries.each do |sql|
+        li = sql.squish
