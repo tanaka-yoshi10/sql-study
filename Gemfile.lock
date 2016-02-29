@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    anbt-sql-formatter (0.0.3)
     arel (6.0.3)
     autoprefixer-rails (6.3.3.1)
       execjs
@@ -211,6 +212,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anbt-sql-formatter
   better_errors
   bootstrap-sass
   byebug

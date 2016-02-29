@@ -5,6 +5,6 @@
   - queries = QueryCounter.queries
   .query-count = "Query count: #{queries.size}"
   - if queries.present?
-    ul
-      - QueryCounter.queries.each do |sql|
-        li = sql.squish
+    - QueryCounter.queries.each do |sql|
+      pre
+        = format_sql sql
