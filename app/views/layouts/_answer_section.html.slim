@@ -3,7 +3,7 @@
   = yield
   .sql-info
     - queries = QueryCounter.queries
-    .query-count = "Query count: #{queries.size}"
+    p.query-count = "Query count: #{queries.size}"
     - if queries.present?
       - QueryCounter.queries.each do |sql, binds|
         pre
