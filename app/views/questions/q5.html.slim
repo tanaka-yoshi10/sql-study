@@ -5,7 +5,7 @@ h2 Books
 table.table
   tr
     th ID
-    th title
+    th Title
   - Book.order(:id).each do |book|
     tr
       td = book.id
@@ -34,7 +34,7 @@ h2 各書籍の年齢層別売上件数を表示する
 = render layout: 'layouts/answer_section' do
   table.table
     tr
-      th title
+      th Title
       th 19以下
       th 20代
       th 30代
