@@ -4,7 +4,13 @@
   = yield
   .sql-info
     - queries = QueryCounter.queries
-    p.query-count = "Query count: #{queries.size}"
+    - query_count = queries.size
+    p.query-count
+      => "Query count: #{queries.size}"
+      - if query_count == 1
+        span.label.label-success OK
+      - else
+        span.label.label-danger NG
     - if queries.present?
       - QueryCounter.queries.each do |sql, binds|
         pre
