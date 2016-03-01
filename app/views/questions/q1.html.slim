@@ -41,6 +41,9 @@ h2 Ruby勉強会に参加していないメンバーの一覧
   ul
     li キャンセルされていれば参加していないと見なす
     li 並び順はメンバーのID順
+
+= render 'questions/q1_example'
+
 - event = Event.find_by name: 'Ruby勉強会'
 = render layout: 'layouts/answer_section' do
   table.table
