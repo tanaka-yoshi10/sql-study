@@ -54,6 +54,11 @@ section {
   font-weight: bold;
   line-height: inherit;
 }
+@media (min-width: $screen-sm-min) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+}
 h1 {
   font-size: 20px;
   margin: 0 0 10px;

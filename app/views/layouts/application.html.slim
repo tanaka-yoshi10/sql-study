@@ -17,11 +17,7 @@ html
         /! Sidebar
         #sidebar-wrapper
           ul.sidebar-nav
-            - (1..5).each do |num|
-              li
-                - path = send("q#{num}_questions_path")
-                - css = 'active' if current_page?(path)
-                = link_to "問題#{num}", path, class: css
+            = render 'layouts/question_list'
 
         /! /#sidebar-wrapper
         /! Page Content
