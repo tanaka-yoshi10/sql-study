@@ -4,6 +4,7 @@ module ApplicationHelper
   def format_sql(sql)
     rule = AnbtSql::Rule.new
     formatter = AnbtSql::Formatter.new(rule)
-    Simplabs::Highlight.highlight :sql, "    #{formatter.format(sql)}".strip_heredoc
+    formatted_sql = formatter.format(sql).gsub('" . ', '".').gsub('. *', '.*')
+    Simplabs::Highlight.highlight :sql, "    #{formatted_sql}".strip_heredoc
   end
 end
