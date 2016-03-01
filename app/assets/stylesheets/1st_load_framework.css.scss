@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'fonts';
 
 // import the CSS framework
 @import "bootstrap-sprockets";
@@ -46,6 +47,13 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+.navbar-brand {
+  font-family: steiner;
+  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: inherit;
+}
 h1 {
   font-size: 20px;
   margin: 0 0 10px;
