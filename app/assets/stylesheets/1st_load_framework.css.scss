@@ -47,6 +47,11 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+.navbar {
+  .container {
+    margin-left: inherit;
+  }
+}
 .navbar-brand {
   font-family: steiner;
   letter-spacing: 3px;
