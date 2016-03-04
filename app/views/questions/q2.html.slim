@@ -1,4 +1,10 @@
-h1 問題2
+h1 問題 2
+
+.panel.panel-default
+  .panel-body
+    | プログラマ向けのQ&Aサイトで、以下のようにデータが登録されています。
+    br
+    | ただし、実際はDiscussionsとCommentsの2つにテーブルが分かれています。
 
 h2 Discussions & Comments
 
@@ -16,7 +22,7 @@ table.table
           - discussion.comments.each do |comment|
             li = comment.content
 
-h2 ディスカッションをコメント件数の多い順に一覧表示する
+h2 設問. ディスカッションをコメント件数の多い順に一覧表示してください
 
 = render 'questions/q2_example'
 
