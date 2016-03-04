@@ -1,0 +1,64 @@
+h1 問題 6
+
+.panel.panel-default
+  .panel-body
+    | プロフィール登録サイトに以下のようなデータが登録されています。
+    br
+    | このサイトでは好きな食べ物と嫌いな食べ物のタグを選択できます。
+    br
+    | 好きな食べ物と嫌いな食べ物はそれぞれ FoodLikings と FoodDislikings というテーブルで関連づけられています。
+
+h2 Foods
+
+table.table
+  tr
+    th ID
+    th Name
+  - Food.order(:id).each do |food|
+    tr
+      td = food.id
+      td = food.name
+
+h2 Profiles
+
+table.table
+  tr
+    th ID
+    th Name
+    th Comment
+    th Liking
+    th Disliking
+  - Profile.order(:id).each do |profile|
+    tr
+      td = profile.id
+      td = profile.name
+      td = profile.comment
+      td
+        ul
+          - profile.liking_foods.order(:id).each do |food|
+            li = food.name
+      td
+        ul
+          - profile.disliking_foods.order(:id).each do |food|
+            li = food.name
+
+h2 設問. コメント、好きな食べ物、嫌いな食べ物のいずれかに 'tomato' が含まれるプロフィールを一覧表示してください
+
+.alert.alert-info
+  ul
+    li 大文字小文字の違いは無視する
+    li 食べ物は完全一致、コメントは部分一致で検索する
+    li プロフィールのID順で並べる
+
+= render 'questions/q6_example'
+
+- keyword = 'tomato'
+= render layout: 'layouts/answer_section' do
+  table.table
+    tr
+      th ID
+      th Name
+    - Profile.keyword_search(keyword).each do |profile|
+      tr
+        td = profile.id
+        td = profile.name

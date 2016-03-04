@@ -80,3 +80,31 @@ ruby_book.purchasings.create! age: 38
 ruby_book.purchasings.create! age: 43
 ruby_book.purchasings.create! age: 49
 cobol_book.purchasings.create! age: 25
+
+# Question 6 ============================
+FoodLiking.delete_all
+FoodDisliking.delete_all
+Profile.delete_all
+Food.delete_all
+
+alice = Profile.create! name: 'Alice', comment: 'Hi.'
+bob = Profile.create! name: 'Bob', comment: 'Hello.'
+chris = Profile.create! name: 'Chris', comment: 'Tomato is beautiful.'
+dave = Profile.create! name: 'Dave', comment: 'Sleepy...'
+
+tomato = Food.create! name: 'tomato'
+tomato_soup = Food.create! name: 'tomato-soup'
+onion = Food.create! name: 'onion'
+
+alice.liking_foods << tomato
+alice.liking_foods << tomato_soup
+alice.disliking_foods << onion
+
+bob.liking_foods << onion
+bob.disliking_foods << tomato
+
+chris.liking_foods << tomato_soup
+
+dave.liking_foods << onion
+dave.disliking_foods << tomato_soup
+
