@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228055711) do
+ActiveRecord::Schema.define(version: 20160304224918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,41 @@ ActiveRecord::Schema.define(version: 20160228055711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "food_dislikings", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "food_dislikings", ["food_id"], name: "index_food_dislikings_on_food_id", using: :btree
+  add_index "food_dislikings", ["profile_id"], name: "index_food_dislikings_on_profile_id", using: :btree
+
+  create_table "food_likings", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "food_likings", ["food_id"], name: "index_food_likings_on_food_id", using: :btree
+  add_index "food_likings", ["profile_id"], name: "index_food_likings_on_profile_id", using: :btree
+
+  create_table "foods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,6 +129,10 @@ ActiveRecord::Schema.define(version: 20160228055711) do
   add_foreign_key "comments", "discussions"
   add_foreign_key "event_participations", "events"
   add_foreign_key "event_participations", "members"
+  add_foreign_key "food_dislikings", "foods"
+  add_foreign_key "food_dislikings", "profiles"
+  add_foreign_key "food_likings", "foods"
+  add_foreign_key "food_likings", "profiles"
   add_foreign_key "purchasings", "books"
   add_foreign_key "tasks", "projects"
 end
