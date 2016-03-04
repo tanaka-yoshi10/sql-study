@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304224918) do
+ActiveRecord::Schema.define(version: 20160304234920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "book_purchasings", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_purchasings", ["book_id"], name: "index_book_purchasings_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -107,15 +116,6 @@ ActiveRecord::Schema.define(version: 20160304224918) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "purchasings", force: :cascade do |t|
-    t.integer  "book_id"
-    t.integer  "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "purchasings", ["book_id"], name: "index_purchasings_on_book_id", using: :btree
-
   create_table "tasks", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "content"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160304224918) do
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
 
+  add_foreign_key "book_purchasings", "books"
   add_foreign_key "comments", "discussions"
   add_foreign_key "event_participations", "events"
   add_foreign_key "event_participations", "members"
@@ -133,6 +134,5 @@ ActiveRecord::Schema.define(version: 20160304224918) do
   add_foreign_key "food_dislikings", "profiles"
   add_foreign_key "food_likings", "foods"
   add_foreign_key "food_likings", "profiles"
-  add_foreign_key "purchasings", "books"
   add_foreign_key "tasks", "projects"
 end

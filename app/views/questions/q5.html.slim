@@ -17,13 +17,13 @@ table.table
       td = book.id
       td = book.title
 
-h2 Purchasings
+h2 BookPurchasings
 
 table.table
   tr
     th Book
     th Age
-  - Purchasing.order(:book_id, :id).each do |purchasing|
+  - BookPurchasing.order(:book_id, :id).each do |purchasing|
     tr
       td = purchasing.book.title
       td = purchasing.age

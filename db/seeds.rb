@@ -66,20 +66,20 @@ DepositTransaction.create! occurred_on: '2016/03/06', amount: 5000
 DepositTransaction.create! occurred_on: '2016/03/06', amount: -4000
 
 # Question 5 ============================
-Purchasing.delete_all
+BookPurchasing.delete_all
 Book.delete_all
 
 ruby_book = Book.create! title: 'Ruby入門'
 cobol_book = Book.create! title: '応用COBOL'
 ada_book = Book.create! title: 'はじめてのAda'
 
-ruby_book.purchasings.create! age: 15
-ruby_book.purchasings.create! age: 18
-ruby_book.purchasings.create! age: 20
-ruby_book.purchasings.create! age: 38
-ruby_book.purchasings.create! age: 43
-ruby_book.purchasings.create! age: 49
-cobol_book.purchasings.create! age: 25
+ruby_book.book_purchasings.create! age: 15
+ruby_book.book_purchasings.create! age: 18
+ruby_book.book_purchasings.create! age: 20
+ruby_book.book_purchasings.create! age: 38
+ruby_book.book_purchasings.create! age: 43
+ruby_book.book_purchasings.create! age: 49
+cobol_book.book_purchasings.create! age: 25
 
 # Question 6 ============================
 FoodLiking.delete_all

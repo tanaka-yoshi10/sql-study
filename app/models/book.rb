@@ -1,8 +1,8 @@
 class Book < ActiveRecord::Base
-  has_many :purchasings
+  has_many :book_purchasings
 
   scope :purchasing_count_by_age_group, -> {
-    joins('LEFT OUTER JOIN purchasings p ON books.id = p.book_id')
+    joins('LEFT OUTER JOIN book_purchasings p ON books.id = p.book_id')
       .group(:id)
       .order(:id)
       .select(<<-SQL)
