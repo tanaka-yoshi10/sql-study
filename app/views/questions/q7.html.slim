@@ -35,6 +35,7 @@ h2 設問. 2016-03-13 から 2016-03-19 までの日別タイトル別売上げ�
     li 縦軸を日付、横軸をゲームタイトル（ID順）として、売上件数を集計する
     li 売上げがない日付は0を表示する
     li 並び順は日付順
+    li 横軸は常に固定で良い（動的に変えるとSQLが複雑になりすぎるため）
 
 = render 'questions/q7_example'
 
@@ -49,6 +50,6 @@ h2 設問. 2016-03-13 から 2016-03-19 までの日別タイトル別売上げ�
     - Game.purchasing_count_by_date_and_title(date_range).each do |game|
       tr
         td = game.target_date
-        td = game.mario_cnt
-        td = game.tetris_cnt
-        td = game.ff4_cnt
+        td = game.cnt_mario
+        td = game.cnt_tetris
+        td = game.cnt_ff4

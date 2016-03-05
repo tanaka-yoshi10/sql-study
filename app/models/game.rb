@@ -5,8 +5,8 @@ class Game < ActiveRecord::Base
     sql = <<-SQL
 WITH calendar AS (
     SELECT CURRENT_DATE + i AS target_date
-    FROM generate_series(DATE '2016-03-13' - CURRENT_DATE,
-                         DATE '2016-03-19' - CURRENT_DATE) i
+    FROM generate_series(DATE :date_from - CURRENT_DATE,
+                         DATE :date_to - CURRENT_DATE) i
 ),
   purchasing_summaries AS (
       SELECT
@@ -20,9 +20,9 @@ WITH calendar AS (
   )
 SELECT
   c.target_date,
-  CAST(SUM(CASE WHEN ps.game_title = 'Mario' THEN ps.cnt ELSE 0 END) AS INTEGER) AS mario_cnt,
-  CAST(SUM(CASE WHEN ps.game_title = 'Tetris' THEN ps.cnt ELSE 0 END) AS INTEGER) AS tetris_cnt,
-  CAST(SUM(CASE WHEN ps.game_title = 'FF4' THEN ps.cnt ELSE 0 END) AS INTEGER) AS ff4_cnt
+  CAST(SUM(CASE WHEN ps.game_title = 'Mario' THEN ps.cnt ELSE 0 END) AS INTEGER) AS cnt_mario,
+  CAST(SUM(CASE WHEN ps.game_title = 'Tetris' THEN ps.cnt ELSE 0 END) AS INTEGER) AS cnt_tetris,
+  CAST(SUM(CASE WHEN ps.game_title = 'FF4' THEN ps.cnt ELSE 0 END) AS INTEGER) AS cnt_ff4
 FROM
   calendar c
 LEFT OUTER JOIN purchasing_summaries ps
@@ -32,6 +32,7 @@ ORDER BY
   c.target_date
     SQL
 
-    find_by_sql(sql)
+    from, to = date_range.minmax
+    find_by_sql([sql, date_from: from, date_to: to])
   end
 end
