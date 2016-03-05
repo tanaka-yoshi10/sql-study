@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :q4
       get :q5
       get :q6
+      get :q7
     end
   end
   root to: 'questions#index'

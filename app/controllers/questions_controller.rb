@@ -9,4 +9,5 @@ class QuestionsController < ApplicationController
   def q4; end
   def q5; end
   def q6; end
+  def q7; end
 end

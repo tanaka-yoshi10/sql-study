@@ -108,3 +108,20 @@ chris.liking_foods << tomato_soup
 dave.liking_foods << onion
 dave.disliking_foods << tomato_soup
 
+# Question 7 ============================
+GamePurchasing.delete_all
+Game.delete_all
+
+mario = Game.create! title: 'Mario'
+tetris = Game.create! title: 'Tetris'
+ff4 = Game.create! title: 'FF4'
+
+mario.game_purchasings.create! purchased_at: '2016-03-12 23:00'
+mario.game_purchasings.create! purchased_at: '2016-03-15 19:00'
+mario.game_purchasings.create! purchased_at: '2016-03-15 23:00'
+mario.game_purchasings.create! purchased_at: '2016-03-18 14:30'
+
+tetris.game_purchasings.create! purchased_at: '2016-03-13 01:00'
+tetris.game_purchasings.create! purchased_at: '2016-03-19 21:30'
+tetris.game_purchasings.create! purchased_at: '2016-03-20 00:30'
+

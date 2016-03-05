@@ -1,0 +1,54 @@
+h1 問題 7
+
+.panel.panel-default
+  .panel-body
+    | 本の売上げを管理するアプリケーションで、以下のようにデータが登録されています。
+    br
+    | 購入データには購入者の年齢が記録されます。
+
+h2 Games
+
+table.table
+  tr
+    th ID
+    th Title
+  - Game.order(:id).each do |game|
+    tr
+      td = game.id
+      td = game.title
+
+h2 GamePurchasings
+
+table.table
+  tr
+    th Game
+    th Purchased at
+  - GamePurchasing.order(:game_id, :id).each do |purchasing|
+    tr
+      td = purchasing.game.title
+      td = l purchasing.purchased_at
+
+h2 設問. 2016-03-13 から 2016-03-19 までの日別タイトル別売上げ一覧を作ってください
+
+.alert.alert-info
+  ul
+    li 縦軸を日付、横軸をゲームタイトル（ID順）として、売上件数を集計する
+    li 売上げがない日付は0を表示する
+    li 並び順は日付順
+
+= render 'questions/q7_example'
+
+- date_range = ('2016-03-13'.to_date)..('2016-03-19'.to_date)
+= render layout: 'layouts/answer_section' do
+  table.table
+    tr
+      th Date
+      th Mario
+      th Tetris
+      th FF4
+    - Game.purchasing_count_by_date_and_title(date_range).each do |game|
+      tr
+        td = game.target_date
+        td = game.mario_cnt
+        td = game.tetris_cnt
+        td = game.ff4_cnt
