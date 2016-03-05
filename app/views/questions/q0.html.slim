@@ -1,0 +1,65 @@
+h1 問題 0（チュートリアル）
+
+.panel.panel-default
+  .panel-body
+    | 人事情報を管理するアプリケーションで、以下のようにデータが登録されています。
+    br
+    | 従業員の中には部署に属さない従業員もいます。
+
+h2 Departments
+
+table.table
+  tr
+    th ID
+    th Name
+  - Department.order(:id).each do |department|
+    tr
+      td = department.id
+      td = department.name
+
+h2 Employees
+
+table.table
+  tr
+    th ID
+    th Name
+    th Department ID
+  - Employee.order(:id).each do |employee|
+    tr
+      td = employee.id
+      td = employee.name
+      td = employee.department_id
+
+h2 設問. 部署名付きで従業員の一覧を表示してください
+
+.alert.alert-info
+  ul
+    li 並び順は従業員のID順
+    li 部署に所属していない場合は空欄
+
+= render 'questions/q0_example'
+
+= render layout: 'layouts/answer_section' do
+  / 望ましくない解答例
+  /table.table
+    tr
+      th ID
+      th Name
+      th Department
+    - Employee.order(:id).each do |employee|
+      tr
+        td = employee.id
+        td = employee.name
+        td = employee.department.try(:name)
+  / 望ましい解答例
+  table.table
+    tr
+      th ID
+      th Name
+      th Department
+    - Employee.eager_load(:department).each do |employee|
+      tr
+        td = employee.id
+        td = employee.name
+        td = employee.department.try(:name)
+

@@ -1,3 +1,15 @@
+# Question 0 ============================
+Employee.delete_all
+Department.delete_all
+
+design = Department.create! name: 'Design'
+finance = Department.create! name: 'Finance'
+
+design.employees.create! name: 'Alice'
+design.employees.create! name: 'Bob'
+finance.employees.create! name: 'Chris'
+Employee.create! name: 'Dave'
+
 # Question 1 ============================
 EventParticipation.delete_all
 Event.delete_all
@@ -124,4 +136,3 @@ mario.game_purchasings.create! purchased_at: '2016-03-18 14:30'
 tetris.game_purchasings.create! purchased_at: '2016-03-13 01:00'
 tetris.game_purchasings.create! purchased_at: '2016-03-19 21:30'
 tetris.game_purchasings.create! purchased_at: '2016-03-20 00:30'
-

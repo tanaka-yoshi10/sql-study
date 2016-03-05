@@ -38,5 +38,8 @@ module SqlStudy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # クエリの発行回数が実行するごとに変わる恐れがあるので、キャッシュさせない
+    config.middleware.delete "ActiveRecord::QueryCache"
   end
 end
