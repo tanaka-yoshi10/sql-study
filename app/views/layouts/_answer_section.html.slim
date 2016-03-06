@@ -3,7 +3,7 @@
   - QueryCounter.init
   = yield
   .sql-info
-    - queries = QueryCounter.queries
+    - queries = QueryCounter.crud_queries
     - query_count = queries.size
     p.query-count
       => "Query count: #{queries.size}"
@@ -11,11 +11,10 @@
         span.label.label-success OK
       - else
         span.label.label-danger NG
-    - if queries.present?
-      - QueryCounter.queries.each do |sql, binds|
-        pre
-          = format_sql(sql).html_safe
-          - if binds.present?
-            = "\n\nbinds: "
-            = binds.map(&:last).map.with_index(1){|v, i| "$#{i} => #{v}"}.join(", ")
+    - queries.each do |sql, binds|
+      pre
+        = format_sql(sql).html_safe
+        - if binds.present?
+          = "\n\nbinds: "
+          = binds.map(&:last).map.with_index(1){|v, i| "$#{i} => #{v}"}.join(", ")
 

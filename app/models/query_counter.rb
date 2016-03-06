@@ -14,5 +14,9 @@ module QueryCounter
     def queries
       Thread.current[:query_counter]
     end
+
+    def crud_queries
+      queries.select { |query, _| query =~ /select|insert|update|delete/i }
+    end
   end
 end
