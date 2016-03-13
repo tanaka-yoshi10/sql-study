@@ -15,7 +15,7 @@ Sample app for https://nishiwaki-koberb.doorkeeper.jp/events/39705
 6. `config/database.yml` を自分の環境に合わせて編集する
 7. `bin/rake db:setup` 実行
 8. `rails s` 実行
-9. http://localhost:3000 にアクセスしてページが開くことを確認
+9. http://0.0.0.0:3000 にアクセスしてページが開くことを確認
 10. `bin/rspec` を実行してテストがエラーなく実行できることを確認
 
 ## How to answer
