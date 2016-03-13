@@ -3,7 +3,7 @@
 # sql-study
 Sample app for https://nishiwaki-koberb.doorkeeper.jp/events/39705
 
-![screen shot 2016-03-14 at 06 46 40 1](https://cloud.githubusercontent.com/assets/1148320/13731605/a1c1997c-e9b0-11e5-8adb-583f43abd94a.png)
+![screen shot 2016-03-14 at 06 58 58](https://cloud.githubusercontent.com/assets/1148320/13731666/44c517d8-e9b2-11e5-8c7b-6bb4423e128e.png)
 
 ## How to setup
 
