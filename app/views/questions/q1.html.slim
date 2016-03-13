@@ -52,12 +52,4 @@ h2 設問. Ruby勉強会に参加していないメンバーの一覧を表示�
 
 - event = Event.find_by name: 'Ruby勉強会'
 = render layout: 'layouts/answer_section' do
-  table.table
-    tr
-      th ID
-      th Name
-    - event.non_participated_members.order(:id).each do |member|
-      tr
-        td = member.id
-        td = member.name
-
+  / 解答はここから下に書く

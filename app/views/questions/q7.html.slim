@@ -41,15 +41,4 @@ h2 設問. 2016-03-13 から 2016-03-19 までの日別タイトル別売上げ�
 
 - date_range = ('2016-03-13'.to_date)..('2016-03-19'.to_date)
 = render layout: 'layouts/answer_section' do
-  table.table
-    tr
-      th Date
-      th Mario
-      th Tetris
-      th FF4
-    - Game.purchasing_count_by_date_and_title(date_range).each do |game|
-      tr
-        td = game.target_date
-        td = game.cnt_mario
-        td = game.cnt_tetris
-        td = game.cnt_ff4
+  / 解答はここから下に書く

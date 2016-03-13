@@ -45,15 +45,4 @@ h2 設問. タスクの締切順にプロジェクトを並べてください
 = render 'questions/q3_example'
 
 = render layout: 'layouts/answer_section' do
-  table.table
-    tr
-      th ID
-      th Name
-      th Task
-      th Due date
-    - Project.projects_with_coming_tasks.each do |project|
-      tr
-        td = project.id
-        td = project.name
-        td = project.task_content
-        td = l project.task_due_date if project.task_due_date.present?
+  / 解答はここから下に書く

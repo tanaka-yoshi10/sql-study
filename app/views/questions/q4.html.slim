@@ -32,15 +32,4 @@ h2 設問. 2016年3月の取引履歴を日毎に集計してください
 = render 'questions/q4_example'
 
 = render layout: 'layouts/answer_section' do
-  table.table
-    tr
-      th Occurred on
-      th Deposit
-      th Payment
-      th Remainder
-    - DepositTransaction.daily_transactions.each do |transaction|
-      tr
-        td = l transaction.occurred_on
-        td = transaction.deposit
-        td = transaction.payment
-        td = transaction.cum_remainder
+  / 解答はここから下に書く

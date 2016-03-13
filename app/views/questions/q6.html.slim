@@ -54,11 +54,4 @@ h2 設問. コメント、好きな食べ物、嫌いな食べ物のいずれか
 
 - keyword = 'tomato'
 = render layout: 'layouts/answer_section' do
-  table.table
-    tr
-      th ID
-      th Name
-    - Profile.keyword_search(keyword).each do |profile|
-      tr
-        td = profile.id
-        td = profile.name
+  / 解答はここから下に書く

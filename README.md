@@ -3,6 +3,8 @@
 # sql-study
 Sample app for https://nishiwaki-koberb.doorkeeper.jp/events/39705
 
+![screen shot 2016-03-14 at 06 46 40 1](https://cloud.githubusercontent.com/assets/1148320/13731605/a1c1997c-e9b0-11e5-8adb-583f43abd94a.png)
+
 ## How to setup
 
 1. このリポジトリを自分のアカウントへフォークする
@@ -39,6 +41,13 @@ Sample app for https://nishiwaki-koberb.doorkeeper.jp/events/39705
 
 - 変更して良いのは `= render layout: 'layouts/answer_section' do` から下のコードと、モデルのコードのみ。コントローラやテストコードは変更してはいけない。
 - SQL1発で求められている結果を表示できるようにする。クエリを2回以上発行したり、RubyのコードでソートやフィルタリングをするのはNG。
+
+## Suggested answers
+
+解答例は answer ブランチに掲載されている。
+ただし、これが唯一かつベストな解答というわけではない。
+
+https://github.com/JunichiIto/sql-study/tree/answer
 
 ## License
 
