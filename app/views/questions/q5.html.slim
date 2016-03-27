@@ -38,4 +38,17 @@ h2 設問. 各書籍の年齢層別売上件数を表示してください
 = render 'questions/q5_example'
 
 = render layout: 'layouts/answer_section' do
-  / 解答はここから下に書く
+  table.table
+    tr
+      th Title
+      th 19以下
+      th 20代
+      th 30代
+      th 40以上
+    - Book.purchasing_count_by_age_group.each do |book|
+      tr
+        td = book.title
+        td = book.under_19
+        td = book.age_20s
+        td = book.age_30s
+        td = book.over_40

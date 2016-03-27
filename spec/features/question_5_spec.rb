@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Question 5' do
-  xscenario do
+  scenario do
     visit q5_questions_path
 
     rows = all('.answer tr')
