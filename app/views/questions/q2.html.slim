@@ -28,3 +28,13 @@ h2 設問. ディスカッションをコメント件数の多い順に一覧表
 
 = render layout: 'layouts/answer_section' do
   / 解答はここから下に書く
+  table.table
+    tr
+      th ID
+      th Content
+      th Comment count
+    - Discussion.order_by_comment_counts.each do |discussion|
+      tr
+        td = discussion.id
+        td = discussion.content
+        td = discussion.comment_count
